@@ -31,7 +31,26 @@ public static void main(String[] args) {
 	//5) Css selector with custmize
 	//<input type="text" placeholder="Email" xpath="1">
 	driver.findElement(By.cssSelector("input[placeholder='Email']")).sendKeys("shashi@123");
+	//With Index   //input[@type='text'][2]
 	driver.findElement(By.xpath("//input[@type='text'][2]")).clear();
+	//Css
 	driver.findElement(By.cssSelector("input[placeholder='Email']")).sendKeys("rock@123");
+	//Parent to child with help of X-path   //form/input[3] --//ParentChildName/childTagName
+	driver.findElement(By.xpath("//form/input[3]")).sendKeys("rock");
+	driver.findElement(By.cssSelector("button.reset-pwd-btn")).click();
+	System.out.println(driver.findElement(By.cssSelector("p.infoMsg")).getText());
+	driver.findElement(By.xpath("//div[@class='forgot-pwd-btn-conainer']/button[1]")).click();
+	driver.findElement(By.cssSelector("#inputUsername")).sendKeys("shashi");
+	//Regular Expression Partial text 
+	driver.findElement(By.cssSelector("input[type*='pass']")).sendKeys("rahulshettyacademy");
+	driver.findElement(By.id("chkboxOne")).click();
+	//Custmize x-path (@class Attribue)
+	driver.findElement(By.xpath("//button[contains(@class,'submit')]")).click();
+	
+	
+	
+	
+	
+	
 }
 }
