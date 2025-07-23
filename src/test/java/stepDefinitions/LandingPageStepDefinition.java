@@ -18,7 +18,7 @@ public class LandingPageStepDefinition {
 	String OfferPageProductName;
 	@Given("User is on GreenCart Landing page")
 	public void user_is_on_green_cart_landing_page() {
-		  driver =new ChromeDriver();
+		 driver =new ChromeDriver();
 		   driver.get("https://rahulshettyacademy.com/seleniumPractise/#/");
 	}
 	@When("user searched with Shortname {string} and extracted actual name of product")
@@ -28,7 +28,6 @@ public class LandingPageStepDefinition {
 		 System.out.println(landingPageProduct);
 		System.out.println(landingPageProduct +" Is extracted from home page");
 	}
-
 	@Then("user searched for {string} shortname in offers page to check if product exist with same name")
 	public void user_searched_for_shortname_in_offers_page_to_check_if_product_exist_with_same_name(String shortName) throws InterruptedException {
 		 driver.findElement(By.linkText("Top Deals")).click();
@@ -43,10 +42,7 @@ public class LandingPageStepDefinition {
 		    System.out.println(OfferPageProductName);
 	}
 	@Then("validate product name in offers page matches with Landing Page")
-	public void validate_product_name_in_offer_page() {
+	public void validate_product_name_in_offers_page_matches_with_landing_page() {
 		Assert.assertEquals(OfferPageProductName, landingPageProduct);
 	}
-	
-
-
 }
