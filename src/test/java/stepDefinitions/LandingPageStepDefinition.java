@@ -6,6 +6,7 @@ import java.util.Set;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 
 import io.cucumber.java.en.Given;
@@ -26,6 +27,7 @@ public class LandingPageStepDefinition {
 	@Given("User is on GreenCart Landing page")
 	public void user_is_on_green_cart_landing_page() {
 		testContextSetup.driver =new ChromeDriver();
+//     	testContextSetup.driver =new FirefoxDriver();
 		testContextSetup.driver.get("https://rahulshettyacademy.com/seleniumPractise/#/");
 	}
 	@When("user searched with Shortname {string} and extracted actual name of product")
