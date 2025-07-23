@@ -14,6 +14,7 @@ import io.cucumber.java.en.When;
 import pageObjects.LandingPage;
 import pageObjects.OffersPage;
 import pageObjects.PageObjectManager;
+import utils.GenericUtils;
 import utils.TestContextSetup;
 
 public class OfferPageStepDefinition {
@@ -43,15 +44,12 @@ public class OfferPageStepDefinition {
 		//if switched to offer page-> skip below part
 //		if(testContextSetup.driver.getCurrentUrl().equalsIgnoreCase("https://rahulshettyacademy.com/seleniumPractise/#/offers")) {
 			//Then Run Below code
-//		pageObjectManager=new PageObjectManager(testContextSetup.driver);
+
 		
 		LandingPage landingPage=testContextSetup.pageObjectManager.getLandingPage();
 		landingPage.selectTopDealsPage();
-		   Set<String> s1=testContextSetup.driver.getWindowHandles();
-		   Iterator<String> i1=s1.iterator();
-		   String parentWindow=i1.next();
-		   String childWindow=i1.next();
-		   testContextSetup.driver.switchTo().window(childWindow);
+		testContextSetup.genericUtils.SwitchWindowToChild();
+
 	}
 	@Then("validate product name in offers page matches with Landing Page")
 	public void validate_product_name_in_offers_page_matches_with_landing_page() {
