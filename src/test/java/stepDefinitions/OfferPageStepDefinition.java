@@ -14,45 +14,49 @@ import io.cucumber.java.en.When;
 import pageObjects.LandingPage;
 import pageObjects.OffersPage;
 import pageObjects.PageObjectManager;
-import utils.GenericUtils;
 import utils.TestContextSetup;
 
 public class OfferPageStepDefinition {
-	
-	String OfferPageProductName;
-	TestContextSetup testContextSetup;
-	//Single responsblity Principle
-	//loosly coupled
-	
-	PageObjectManager pageObjectManager;
-	public OfferPageStepDefinition(TestContextSetup testContextSetup) {
-		this.testContextSetup=testContextSetup;
-	}
-	
-	@Then("user searched for {string} shortname in offers page to check if product exist with same name")
-	public void user_searched_for_shortname_in_offers_page_to_check_if_product_exist_with_same_name(String shortName) throws InterruptedException {
-		switchToOffersPage();
-		OffersPage offersPage=new OffersPage(testContextSetup.driver);
-		offersPage.searchItem(shortName);
-		   testContextSetup.driver.findElement(By.xpath("//input[@type='search']")).sendKeys(shortName);
-		   Thread.sleep(2000);
-		    OfferPageProductName= offersPage.getProductName();
-//		    System.out.println(OfferPageProductName);
-	}
-	
-	public void switchToOffersPage() {
-		//if switched to offer page-> skip below part
-//		if(testContextSetup.driver.getCurrentUrl().equalsIgnoreCase("https://rahulshettyacademy.com/seleniumPractise/#/offers")) {
-			//Then Run Below code
 
+public String offerPageProductName;
+TestContextSetup testContextSetup;
+PageObjectManager pageObjectManager;
+//Single responsibilty Principle
+//loosly coupled
+//Factory Design Pattern
+public OfferPageStepDefinition(TestContextSetup testContextSetup)
+{
+	this.testContextSetup=testContextSetup;
+}
+
+@Then("^user searched for (.+) shortname in offers page$")
+public void user_searched_for_same_shortname_in_offers_page(String shortName) throws InterruptedException {
+    //offer pafe->enter_>grab text
+
+	switchToOffersPage();
+	OffersPage offersPage  =testContextSetup.pageObjectManager.OffersPage();
+	offersPage.searchItem(shortName);
+	Thread.sleep(2000);
+	 offerPageProductName = offersPage.getProductName();
+	
 		
-		LandingPage landingPage=testContextSetup.pageObjectManager.getLandingPage();
-		landingPage.selectTopDealsPage();
-		testContextSetup.genericUtils.SwitchWindowToChild();
+}
 
-	}
-	@Then("validate product name in offers page matches with Landing Page")
-	public void validate_product_name_in_offers_page_matches_with_landing_page() {
-		Assert.assertEquals(OfferPageProductName, testContextSetup.landingPageProductName);
-	}
+public void switchToOffersPage()
+{
+	//if switched to offer page-> skip below part
+	LandingPage landingPage  =testContextSetup.pageObjectManager.getLandingPage();
+	landingPage.selectTopDealsPage();
+	testContextSetup.genericUtils.SwitchWindowToChild();
+	//explicit wait, parse string
+	
+	
+}
+@Then("validate product name in offers page matches with Landing Page")
+public void validate_product_name_in_Offers_page()
+{
+	Assert.assertEquals(offerPageProductName, testContextSetup.landingPageProductName);
+}
+
+	
 }

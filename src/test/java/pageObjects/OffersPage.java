@@ -13,18 +13,23 @@ public class OffersPage {
 	}
 	private By search = By.xpath("//input[@type='search']");
 	private By productName = By.cssSelector("tr td:nth-child(1)");
-//	By topDeals = By.linkText("Top Deals");
+	
 	
 	public void searchItem(String name)
 	{
 		driver.findElement(search).sendKeys(name);
 	}
+	
 	public void getSearchText()
 	{
 		driver.findElement(search).getText();
 	}
+	
 	public String getProductName()
 	{
 		return driver.findElement(productName).getText();
 	}
+	
+	
+	
 }
