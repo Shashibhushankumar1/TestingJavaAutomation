@@ -12,6 +12,8 @@ import org.testng.Assert;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import pageObjects.LandingPage;
+import pageObjects.PageObjectManager;
 import utils.TestContextSetup;
 
 public class LandingPageStepDefinition {
@@ -19,6 +21,7 @@ public class LandingPageStepDefinition {
 	public String landingPageProductName;
 	String OfferPageProductName;
 	TestContextSetup testContextSetup;
+	PageObjectManager pageObjectManager;
 	
 	public LandingPageStepDefinition(TestContextSetup testContextSetup) {
 		this.testContextSetup=testContextSetup;
@@ -32,8 +35,10 @@ public class LandingPageStepDefinition {
 	}
 	@When("user searched with Shortname {string} and extracted actual name of product")
 	public void user_searched_with_shortname_and_extracted_actual_name_of_product(String shortName) {
-		testContextSetup.driver.findElement(By.xpath("//input[@type='search']")).sendKeys(shortName);
-		testContextSetup.landingPageProductName= testContextSetup.driver.findElement(By.xpath("//h4[normalize-space()='Tomato - 1 Kg']")).getText().split("-")[0].trim();
+		
+		LandingPage landingPage=testContextSetup.pageObjectManager.getLandingPage();
+		landingPage.searchItem(shortName);
+		testContextSetup.landingPageProductName= landingPage.getProductName().split("-")[0].trim();
 		 System.out.println(landingPageProductName);
 		System.out.println(landingPageProductName +" Is extracted from home page");
 	}
