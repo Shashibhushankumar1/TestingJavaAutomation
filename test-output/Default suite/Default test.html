@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>2/1/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Thu Jul 24 13:42:54 ICT 2025</td>
+<td>Started on:</td><td>Thu Jul 24 13:59:36 ICT 2025</td>
 </tr>
-<tr><td>Total time:</td><td>27 seconds (27619 ms)</td>
+<tr><td>Total time:</td><td>13 seconds (13287 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,7 +75,7 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='cucumberOptions.TestNGTestRunner.runScenario()'><b>runScenario</b><br>Test class: cucumberOptions.TestNGTestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Search Experience for product search in both home and Offers page", "Optional[Search and Place the order for Products]"</td>
+<td title='cucumberOptions.FailedTestRunner.runScenario()'><b>runScenario</b><br>Test class: cucumberOptions.FailedTestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Search Experience for product search in both home and Offers page", "Optional[Search and Place the order for Products]"</td>
 <td><div><pre>java.lang.AssertionError: expected [Beetroot] but found [No data]
 	at org.testng.Assert.fail(Assert.java:99)
 	at org.testng.Assert.failNotEquals(Assert.java:1037)
@@ -85,8 +85,8 @@ function toggleAllBoxes() {
 	at org.testng.Assert.assertEquals(Assert.java:639)
 	at stepDefinitions.OfferPageStepDefinition.validate_product_name_in_Offers_page(OfferPageStepDefinition.java:59)
 	at ✽.validate product name in offers page matches with Landing Page(file:///D:/Java-practice/CucumberFrameworkTestNG/src/test/java/features/searchProduct.feature:10)
-</pre></div><a href='#' onClick='toggleBox("stack-trace534840025", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace534840025'><pre>java.lang.AssertionError: expected [Beetroot] but found [No data]
+</pre></div><a href='#' onClick='toggleBox("stack-trace289581768", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace289581768'><pre>java.lang.AssertionError: expected [Beetroot] but found [No data]
 	at org.testng.Assert.fail(Assert.java:99)
 	at org.testng.Assert.failNotEquals(Assert.java:1037)
 	at org.testng.Assert.assertEqualsImpl(Assert.java:140)
@@ -96,26 +96,8 @@ function toggleAllBoxes() {
 	at stepDefinitions.OfferPageStepDefinition.validate_product_name_in_Offers_page(OfferPageStepDefinition.java:59)
 	at ✽.validate product name in offers page matches with Landing Page(file:///D:/Java-practice/CucumberFrameworkTestNG/src/test/java/features/searchProduct.feature:10)
 </pre></div></td>
-<td>25</td>
-<td>cucumberOptions.TestNGTestRunner@273e7444</td></tr>
-</table><p>
-<table width='100%' border='1' class='invocation-passed'>
-<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
-<tr><td><b>Test method</b></td>
-<td width="30%"><b>Exception</b></td>
-<td width="10%"><b>Time (seconds)</b></td>
-<td><b>Instance</b></td>
-</tr>
-<tr>
-<td title='cucumberOptions.TestNGTestRunner.runScenario()'><b>runScenario</b><br>Test class: cucumberOptions.TestNGTestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Search Experience for product search in both home and Offers page", "Optional[Place the order for Products]"</td>
-<td></td>
-<td>24</td>
-<td>cucumberOptions.TestNGTestRunner@273e7444</td></tr>
-<tr>
-<td title='cucumberOptions.TestNGTestRunner.runScenario()'><b>runScenario</b><br>Test class: cucumberOptions.TestNGTestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Search Experience for product search in both home and Offers page", "Optional[Search and Place the order for Products]"</td>
-<td></td>
-<td>25</td>
-<td>cucumberOptions.TestNGTestRunner@273e7444</td></tr>
+<td>11</td>
+<td>cucumberOptions.FailedTestRunner@273e7444</td></tr>
 </table><p>
 </body>
 </html>
