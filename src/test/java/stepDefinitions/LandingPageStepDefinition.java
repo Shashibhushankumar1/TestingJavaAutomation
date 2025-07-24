@@ -23,11 +23,13 @@ LandingPage landingPage;
 //Spring framework, EJB, 
 //SRP
 //
+//Step :-2
 public LandingPageStepDefinition(TestContextSetup testContextSetup)
 {
 	this.testContextSetup=testContextSetup;
 	this.landingPage =testContextSetup.pageObjectManager.getLandingPage();
 }
+//
 	@Given("User is on GreenCart Landing page")
 public void user_is_on_green_cart_landing_page() {
 		
