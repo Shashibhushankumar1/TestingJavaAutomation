@@ -36,6 +36,7 @@ public void user_is_on_green_cart_landing_page() {
 		Assert.assertTrue(landingPage.getTitleLandingPage().contains("GreenKart"));
 }
 
+	//Dynamic string regular expression below example of Scenario Outline: 
 	@When("^user searched with Shortname (.+) and extracted actual name of product$")
 	public void user_searched_with_shortname_and_extracted_actual_name_of_product(String shortName ) throws InterruptedException {
 		

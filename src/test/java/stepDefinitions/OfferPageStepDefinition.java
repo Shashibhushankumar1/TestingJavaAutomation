@@ -29,6 +29,7 @@ public OfferPageStepDefinition(TestContextSetup testContextSetup)
 	this.testContextSetup=testContextSetup;
 }
 
+//Dynamic string regular expression below example of Scenario Outline: 
 @Then("^user searched for (.+) shortname in offers page$")
 public void user_searched_for_same_shortname_in_offers_page(String shortName) throws InterruptedException {
     //offer pafe->enter_>grab text

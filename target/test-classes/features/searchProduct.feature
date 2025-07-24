@@ -3,6 +3,7 @@ Feature: Search and Place the order for Products
 Scenario Outline: Search Experience for product search in both home and Offers page
 
 #Step:-1
+#Here <Name>  is column name of Examples: below table
 Given User is on GreenCart Landing page
 When user searched with Shortname <Name> and extracted actual name of product
 Then user searched for <Name> shortname in offers page
@@ -11,6 +12,7 @@ And  validate product name in offers page matches with Landing Page
 Examples:
 | Name  |
 | Tom 	|
+|Beet   |
 
 
 
