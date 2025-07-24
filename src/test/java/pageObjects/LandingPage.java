@@ -13,9 +13,11 @@ public class LandingPage {
 	}
 	By search = By.xpath("//input[@type='search']");
 	By productName = By.cssSelector("h4.product-name");
-//	By productName = By.xpath("//h4[normalize-space()='Tomato - 1 Kg']");
 	By topDeals = By.linkText("Top Deals");
-	
+	//Increment click on + icon
+	By increment=   By.cssSelector("a.increment");
+	//Parnt to child Add To Cart button(Selected for Tomato Product)
+	By addToCart = By.cssSelector(".product-action button");
 
 	
 	
@@ -30,8 +32,26 @@ public class LandingPage {
 	{
 		driver.findElement(search).getText();
 	}
+	//Step :-6
+	//Take input as argument how many need click item (2)
+	public void incrementQuantity(int quantity)
+	{
+		//i=3-1 =2
+		int i = quantity-1;
+		while(i>0)
+		{
+			//This loop reapeat two time until i=0 -->click on + icon to increse items
+			driver.findElement(increment).click();
+			i--;
+		}
+		
+	}
 	
-	
+	public void addToCart()
+	{
+		driver.findElement(addToCart).click();
+	}
+	//Step :-6 Till
 	public String getProductName()
 	{
 		return driver.findElement(productName).getText();
@@ -41,12 +61,11 @@ public class LandingPage {
 	{
 		driver.findElement(topDeals).click();
 	}
+	
 	public String getTitleLandingPage()
 	{
 		return driver.getTitle();
 	}
-	
-	
 	
 	
 	

@@ -32,7 +32,8 @@ public WebDriver driver;
 			if(prop.getProperty("browser").equalsIgnoreCase("firefox")) {
 				driver= new FirefoxDriver();
 			}
-		
+			//It will wait for 5 sec untill object is found --> This will applicable for entire framework
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 	    driver.get(url);
 		}
 	    return driver;

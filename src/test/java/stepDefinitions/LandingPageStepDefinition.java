@@ -32,7 +32,7 @@ public LandingPageStepDefinition(TestContextSetup testContextSetup)
 //
 	@Given("User is on GreenCart Landing page")
 public void user_is_on_green_cart_landing_page() {
-		
+		//GetTitle of landing page
 		Assert.assertTrue(landingPage.getTitleLandingPage().contains("GreenKart"));
 }
 
@@ -45,5 +45,15 @@ public void user_is_on_green_cart_landing_page() {
 		testContextSetup.landingPageProductName = landingPage.getProductName().split("-")[0].trim();
 		System.out.println(landingPageProductName +" is extracted from Home page");
 			
-}	
+}
+	//Step :-6
+	@When("Added {string} items of the selected product to cart")
+	public void Added_items_product(String quantity)
+	{
+		//Here calling from landingPage 
+		// convert string to INT -->Integer.parseInt(quantity)
+		landingPage.incrementQuantity(Integer.parseInt(quantity));
+		landingPage.addToCart();
+		
+	}
 }
