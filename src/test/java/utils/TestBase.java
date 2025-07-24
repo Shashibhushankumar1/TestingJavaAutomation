@@ -17,7 +17,7 @@ public class TestBase {
 
 
 public WebDriver driver;
-	
+	//This class Object created in TestContextSetup So check
 	public WebDriver WebDriverManager() throws IOException {
 		
 //		FileInputStream fis = new FileInputStream(System.getProperty("D://Java-practice//CucumberFrameworkTestNG//src//test//resources//global.properties"));
@@ -27,7 +27,6 @@ public WebDriver driver;
 		String url = prop.getProperty("QAUrl");
 		if(driver==null) {
 			if(prop.getProperty("browser").equalsIgnoreCase("chrome")) {
-//			if(prop.getProperty("browser") == "chrome") {
 				driver =new ChromeDriver();
 			}
 			if(prop.getProperty("browser").equalsIgnoreCase("firefox")) {
