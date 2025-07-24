@@ -12,8 +12,8 @@ public class LandingPage {
 		
 	}
 	By search = By.xpath("//input[@type='search']");
-//	By productName = By.cssSelector("h4.product-name");
-	By productName = By.xpath("//h4[normalize-space()='Tomato - 1 Kg']");
+	By productName = By.cssSelector("h4.product-name");
+//	By productName = By.xpath("//h4[normalize-space()='Tomato - 1 Kg']");
 	By topDeals = By.linkText("Top Deals");
 	
 
