@@ -25,18 +25,30 @@ public WebDriver driver;
 		Properties prop = new Properties();
 		prop.load(fis);
 		String url = prop.getProperty("QAUrl");
-		if(driver==null) {
-			if(prop.getProperty("browser").equalsIgnoreCase("chrome")) {
+		String browser_properties = prop.getProperty("browser");
+		String browser_maven=System.getProperty("browser");
+		// result = testCondition ? value1 : value2
+		
+		//Ternary Operator
+		String browser = browser_maven!=null ? browser_maven : browser_properties;
+		
+		
+		
+		if(driver == null)
+		{
+			if(browser.equalsIgnoreCase("chrome"))
+			{
 				driver =new ChromeDriver();
 			}
-			if(prop.getProperty("browser").equalsIgnoreCase("firefox")) {
-				driver= new FirefoxDriver();
+			if(browser.equalsIgnoreCase("firefox"))
+			{
+				driver= new FirefoxDriver();	
 			}
-			//It will wait for 5 sec untill object is found --> This will applicable for entire framework
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-	    driver.get(url);
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+		driver.get(url);
 		}
-	    return driver;
+		
+		return driver;
 		
 	}
 	
